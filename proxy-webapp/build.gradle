@@ -1,0 +1,43 @@
+ 
+apply plugin: 'jetty'
+apply plugin: 'war'
+
+
+dependencies {
+
+    compile 'org.jminix:jminix:1.1.0'
+    compile 'com.unidev.platform:platform-common-j2ee:1.1.0'
+
+
+
+}
+
+repositories {
+    maven { url 'http://maven.restlet.org' }
+}
+
+jettyRun {
+    httpPort = 8080
+    contextPath = '/'
+    daemon = false
+}
+
+jettyRunWar {
+    httpPort = 8080
+    contextPath = '/'
+    daemon = false
+}
+
+import org.apache.tools.ant.filters.*
+
+war {
+    filter(ReplaceTokens, tokens: [
+            "BUILD_ID" : System.getProperty("BUILD_ID") + "",
+            "GIT_COMMIT" : System.getProperty("GIT_COMMIT") + "",
+            "BUILD_NUMBER" : System.getProperty("BUILD_NUMBER") + ""
+    ])
+}
+
+[jettyRun, jettyRunWar, jettyStop]*.stopPort = 8081
+[jettyRun, jettyRunWar, jettyStop]*.stopKey = 'stopKey'
+
