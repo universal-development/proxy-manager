@@ -1,10 +1,12 @@
 package com.unidev.proxymanager;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Proxy management webapp
  */
-@Component
+@Service
 public class ProxyManager {
+
+
 }
