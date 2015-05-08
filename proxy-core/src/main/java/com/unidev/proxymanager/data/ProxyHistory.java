@@ -4,6 +4,7 @@ package com.unidev.proxymanager.data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ProxyHistory {
     private Long requestCount;
 
     private Integer score;
-    private List<Integer> history;
+    private List<Integer> history = new ArrayList<>();
 
     private Double requestTime;
 
