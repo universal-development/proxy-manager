@@ -1,7 +1,7 @@
 package com.unidev.proxymanager.data;
 
 /**
- * Proxy checking result
+ * Storage for proxy check result, have inside collected results <br/>
  */
 public class ProxyCheckResult {
 
@@ -45,7 +45,6 @@ public class ProxyCheckResult {
         setCheckStatus(checkStatus);
         return this;
     }
-
 
     @Override
     public String toString() {
