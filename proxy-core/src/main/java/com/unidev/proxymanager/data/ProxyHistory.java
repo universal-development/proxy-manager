@@ -20,12 +20,12 @@ public class ProxyHistory {
     private String ip;
     private Integer port;
 
-    private Long requestCount;
+    private Long requestCount = 0L;
 
     private Integer score;
     private List<Integer> history = new ArrayList<>();
 
-    private Double requestTime;
+    private Double requestTime = 0D;
 
     private Date addDate = new Date();
 
