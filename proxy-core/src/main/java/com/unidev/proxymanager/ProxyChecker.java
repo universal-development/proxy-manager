@@ -42,12 +42,15 @@ public class ProxyChecker {
 
         ProxyHTTPClient proxyHTTPClient = applicationContext.getBean(ProxyHTTPClient.class);
         proxyHTTPClient.init(ip, port, HTTPClientUtils.USER_AGENTS);
+        proxyHTTPClient.setConnectionTimeout(30000);
         String backendResponse;
         long start, end;
         try {
             start = System.currentTimeMillis();
             backendResponse = proxyHTTPClient.get(REQUEST_URL,
-                    new BasicHeader("Content-type", "application/json"));
+                    new BasicHeader("Content-type", "application/json"),
+                    new BasicHeader("Accept", "*/*")
+            );
             end = System.currentTimeMillis();
         } catch (IOException e) {
             e.printStackTrace();
