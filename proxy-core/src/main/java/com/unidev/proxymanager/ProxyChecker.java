@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import static com.unidev.proxymanager.data.ProxyCheckResult.*;
@@ -25,8 +26,9 @@ public class ProxyChecker {
 
     private static Logger LOG = LoggerFactory.getLogger(ProxyChecker.class);
 
+    @Value("${proxy.check.url:http://myipdc.apps.universal-development.com/}")
+    private String requestUrl;
 
-    public static final String REQUEST_URL = "http://myip.apps.universal-development.com/";
     public static final String IP_KEY = "ip";
 
     @Autowired
@@ -47,7 +49,7 @@ public class ProxyChecker {
         long start, end;
         try {
             start = System.currentTimeMillis();
-            backendResponse = proxyHTTPClient.get(REQUEST_URL,
+            backendResponse = proxyHTTPClient.get(requestUrl,
                     new BasicHeader("Content-type", "application/json"),
                     new BasicHeader("Accept", "*/*")
             );
@@ -67,4 +69,11 @@ public class ProxyChecker {
                             .withRequestTime(end - start);
     }
 
+    public String getRequestUrl() {
+        return requestUrl;
+    }
+
+    public void setRequestUrl(String requestUrl) {
+        this.requestUrl = requestUrl;
+    }
 }
