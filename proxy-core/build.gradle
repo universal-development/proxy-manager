@@ -1,3 +1,4 @@
 dependencies {
     compile 'com.unidev.platform:mongodb-data:1.0.0'
+    compile 'com.unidev.platform:http-client-proxy:1.0.0'
 }
