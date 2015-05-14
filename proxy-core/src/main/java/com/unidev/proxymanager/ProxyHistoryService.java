@@ -14,10 +14,10 @@ import java.util.Date;
 @Service
 public class ProxyHistoryService {
 
-    @Autowired
+    @Autowired(required = false)
     private MongoTemplate mongoTemplate;
 
-    @Autowired
+    @Autowired(required = false)
     private ProxyHistoryRepository proxyHistoryRepository;
 
     /**

@@ -8,6 +8,8 @@ import static com.unidev.proxymanager.data.ProxyCheckResult.CheckStatus.*;
 import com.unidev.proxymanager.data.ProxyHistory;
 import org.apache.http.message.BasicHeader;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,9 @@ import java.io.IOException;
  */
 @Service
 public class ProxyChecker {
+
+    private static Logger LOG = LoggerFactory.getLogger(ProxyChecker.class);
+
 
     public static final String REQUEST_URL = "http://myip.apps.universal-development.com/";
     public static final String IP_KEY = "ip";
@@ -42,12 +47,14 @@ public class ProxyChecker {
         try {
             start = System.currentTimeMillis();
             backendResponse = proxyHTTPClient.get(REQUEST_URL,
-                    new BasicHeader("Content-Type", "application/json"));
+                    new BasicHeader("Content-type", "application/json"));
             end = System.currentTimeMillis();
         } catch (IOException e) {
             e.printStackTrace();
             return ProxyCheckResult.FAILED;
         }
+
+        LOG.debug("{}", backendResponse);
 
         JSONObject jsonObject = new JSONObject(backendResponse);
         String remoteIp = jsonObject.getString(IP_KEY);
