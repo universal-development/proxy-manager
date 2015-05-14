@@ -5,11 +5,29 @@ package com.unidev.proxymanager.data;
  */
 public class ProxyCheckResult {
 
+    public static final ProxyCheckResult FAILED = new ProxyCheckResult(CheckStatus.FAILED);
+    public static final ProxyCheckResult TIMEOUT_FAILED = new ProxyCheckResult(CheckStatus.TIMEOUT_FAILED);
+
     public enum CheckStatus { OK, FAILED, TIMEOUT_FAILED}
 
     private String remoteIp;
     private Long requestTime;
     private CheckStatus checkStatus;
+
+    public ProxyCheckResult() {
+    }
+
+    public ProxyCheckResult(CheckStatus checkStatus) {
+        this.checkStatus = checkStatus;
+    }
+
+    public ProxyCheckResult(String remoteIp, Long requestTime, CheckStatus checkStatus) {
+        this.remoteIp = remoteIp;
+        this.requestTime = requestTime;
+        this.checkStatus = checkStatus;
+    }
+
+
 
     @Override
     public String toString() {
