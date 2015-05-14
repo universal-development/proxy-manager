@@ -26,7 +26,7 @@ public class ProxyChecker {
 
     private static Logger LOG = LoggerFactory.getLogger(ProxyChecker.class);
 
-    @Value("${proxy.check.url:http://myipdc.apps.universal-development.com/}")
+    @Value("proxy.check.url")
     private String requestUrl;
 
     public static final String IP_KEY = "ip";
