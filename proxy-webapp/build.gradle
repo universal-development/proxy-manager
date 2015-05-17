@@ -4,7 +4,7 @@ apply plugin: 'war'
 
 
 dependencies {
-
+    compile project(':proxy-core')
     compile 'org.jminix:jminix:1.1.0'
     compile 'com.unidev.platform:platform-common-j2ee:1.1.0'
 
@@ -31,11 +31,18 @@ jettyRunWar {
 import org.apache.tools.ant.filters.*
 
 war {
-    filter(ReplaceTokens, tokens: [
-            "BUILD_ID" : System.getProperty("BUILD_ID") + "",
-            "GIT_COMMIT" : System.getProperty("GIT_COMMIT") + "",
-            "BUILD_NUMBER" : System.getProperty("BUILD_NUMBER") + ""
-    ])
+    eachFile {
+        if (it.name == 'build.jsp') {
+            it.filter(ReplaceTokens, tokens: [
+                    "BUILD_ID" : System.getProperty("BUILD_ID") + "",
+                    "GIT_COMMIT" : System.getProperty("GIT_COMMIT") + "",
+                    "BUILD_NUMBER" : System.getProperty("BUILD_NUMBER") + "",
+                    "PROJECT_VERSION" : project.version
+            ])
+        }
+    }
+
+
 }
 
 [jettyRun, jettyRunWar, jettyStop]*.stopPort = 8081
