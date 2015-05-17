@@ -2,6 +2,7 @@ package com.unidev.proxymanager.data;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Proxy history object
  */
+@Document(indexName = "proxyHistory")
 public class ProxyHistory {
 
     @Id

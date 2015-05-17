@@ -1,7 +1,7 @@
 package com.unidev.proxymanager.integration;
 
 import com.unidev.proxymanager.ProxyChecker;
-import com.unidev.proxymanager.data.ProxyCheckResult;
+import com.unidev.proxymanager.domain.ProxyCheckResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/platform-common-beans.xml"})
+@ContextConfiguration(locations = {"classpath:/platform-common-beans.xml","/proxy-core-conf.xml"})
 public class ProxyCheckerTest {
 
     private static Logger LOG = LoggerFactory.getLogger(ProxyCheckerTest.class);

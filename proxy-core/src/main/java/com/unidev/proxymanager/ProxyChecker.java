@@ -2,7 +2,7 @@ package com.unidev.proxymanager;
 
 import com.unidev.platform.http.HTTPClientUtils;
 import com.unidev.platform.http.ProxyHTTPClient;
-import com.unidev.proxymanager.data.ProxyCheckResult;
+import com.unidev.proxymanager.domain.ProxyCheckResult;
 import org.apache.http.message.BasicHeader;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-import static com.unidev.proxymanager.data.ProxyCheckResult.CheckStatus.OK;
-import static com.unidev.proxymanager.data.ProxyCheckResult.newCheckResult;
+import static com.unidev.proxymanager.domain.ProxyCheckResult.CheckStatus.OK;
+import static com.unidev.proxymanager.domain.ProxyCheckResult.newCheckResult;
 
 /**
  * Proxy checking service

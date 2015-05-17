@@ -1,4 +1,4 @@
-package com.unidev.proxymanager.data;
+package com.unidev.proxymanager.domain;
 
 /**
  * Storage for proxy check result, have inside collected results <br/>
