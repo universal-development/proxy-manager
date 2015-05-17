@@ -55,6 +55,7 @@ public class ProxyCheckingExecutor implements JobExecutor {
         proxyHistory.setLastUpdate(new Date());
         proxyHistory.setRequestTime(proxyCheckResult.getRequestTime() / 1000D);
         proxyHistory.addRequestCount(1);
+        proxyHistory.setRemoteIp(proxyCheckResult.getRemoteIp());
 
         if (proxyCheckResult.getCheckStatus() == ProxyCheckResult.CheckStatus.OK) {
             proxyHistory.addScore(1);
