@@ -22,7 +22,7 @@ public class ProxyHistory {
 
     private Long requestCount = 0L;
 
-    private Integer score;
+    private Integer score = 0;
     private List<Integer> history = new ArrayList<>();
 
     private Double requestTime = 0D;
