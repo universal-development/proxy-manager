@@ -29,7 +29,7 @@ public class ProxyHistoryService {
     public void addProxy(String ip, Integer port) {
 
         ProxyHistory proxyHistory = new ProxyHistory();
-        proxyHistory.setId((ip + ":" + port).hashCode() + "");
+        proxyHistory.setId((ip + ":" + port) + "");
         proxyHistory.setIp(ip);
         proxyHistory.setPort(port);
         proxyHistory.setAddDate(new Date());
@@ -44,7 +44,7 @@ public class ProxyHistoryService {
      * @param port
      */
     public void removeProxy(String ip, Integer port) {
-        proxyHistoryRepository.delete( (ip + ":" + port).hashCode() + "");
+        proxyHistoryRepository.delete( (ip + ":" + port)+ "");
     }
 
     /**
