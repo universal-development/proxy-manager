@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Proxy history object
  */
-@Document(indexName = "proxyHistory")
+@Document(indexName = "proxy_history")
 public class ProxyHistory {
 
     @Id
