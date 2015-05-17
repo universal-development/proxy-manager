@@ -166,4 +166,8 @@ public class ProxyHistory {
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
+
+    public void addScore(Integer addScore) {
+        setScore(getScore() + addScore);
+    }
 }
