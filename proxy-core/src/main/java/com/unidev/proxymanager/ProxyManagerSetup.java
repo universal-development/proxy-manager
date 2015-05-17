@@ -25,8 +25,13 @@ public class ProxyManagerSetup {
     @Autowired
     private ProxyHistoryRepository proxyHistoryRepository;
 
+    @Autowired
+    private ProxyChecker proxyChecker;
+
     @PostConstruct
     public void setup() {
+        proxyChecker.setRequestUrl("http://myipdc.apps.universal-development.com");
+
 
         jobExecutionService.addExecutor(proxyCheckingExecutor);
 
