@@ -7,6 +7,8 @@ import com.unidev.proxymanager.ProxyHistoryService;
 import com.unidev.proxymanager.data.ProxyHistory;
 import com.unidev.proxymanager.data.ProxyHistoryRepository;
 import com.unidev.proxymanager.domain.ProxyCheckResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ public class ProxyCheckingExecutor implements JobExecutor {
 
     public static final int MAX_SCORE = 10;
     private static final int MIN_SCORE = -10;
+
+    private static Logger LOG = LoggerFactory.getLogger(ProxyCheckingExecutor.class);
+
 
     @Autowired
     private ProxyHistoryService proxyHistoryService;
@@ -75,6 +80,7 @@ public class ProxyCheckingExecutor implements JobExecutor {
     @Override
     public boolean handle(String jobDataId) {
         ProxyHistory proxyHistory = proxyHistoryRepository.findOne(jobDataId);
+        LOG.info("Proxy history {} {} ", proxyHistory, jobDataId);
         return checkProxy(proxyHistory);
     }
 
