@@ -28,6 +28,7 @@ public class ProxyHistoryService {
     public void addProxy(String ip, Integer port) {
 
         ProxyHistory proxyHistory = new ProxyHistory();
+        proxyHistory.setId(ip + ":" + port);
         proxyHistory.setIp(ip);
         proxyHistory.setPort(port);
         proxyHistory.setAddDate(new Date());
