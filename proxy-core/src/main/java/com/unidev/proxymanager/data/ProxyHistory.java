@@ -28,11 +28,13 @@ public class ProxyHistory {
     private Double requestTime = 0D;
 
     private Date addDate = new Date();
+    private Date lastUpdate = new Date(0L);
+
 
     public ProxyHistory() {
     }
 
-    public ProxyHistory(String id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate) {
+    public ProxyHistory(String id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate, Date lastUpdate) {
         this.id = id;
         this.ip = ip;
         this.port = port;
@@ -41,6 +43,7 @@ public class ProxyHistory {
         this.history = history;
         this.requestTime = requestTime;
         this.addDate = addDate;
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -54,6 +57,7 @@ public class ProxyHistory {
         if (history != null ? !history.equals(that.history) : that.history != null) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (ip != null ? !ip.equals(that.ip) : that.ip != null) return false;
+        if (lastUpdate != null ? !lastUpdate.equals(that.lastUpdate) : that.lastUpdate != null) return false;
         if (port != null ? !port.equals(that.port) : that.port != null) return false;
         if (requestCount != null ? !requestCount.equals(that.requestCount) : that.requestCount != null) return false;
         if (requestTime != null ? !requestTime.equals(that.requestTime) : that.requestTime != null) return false;
@@ -72,6 +76,7 @@ public class ProxyHistory {
         result = 31 * result + (history != null ? history.hashCode() : 0);
         result = 31 * result + (requestTime != null ? requestTime.hashCode() : 0);
         result = 31 * result + (addDate != null ? addDate.hashCode() : 0);
+        result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
     }
 
@@ -86,6 +91,7 @@ public class ProxyHistory {
                 ", history=" + history +
                 ", requestTime=" + requestTime +
                 ", addDate=" + addDate +
+                ", lastUpdate=" + lastUpdate +
                 '}';
     }
 
@@ -153,4 +159,11 @@ public class ProxyHistory {
         this.addDate = addDate;
     }
 
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 }
