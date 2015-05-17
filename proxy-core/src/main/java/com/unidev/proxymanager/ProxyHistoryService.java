@@ -3,7 +3,6 @@ package com.unidev.proxymanager;
 import com.unidev.proxymanager.data.ProxyHistory;
 import com.unidev.proxymanager.data.ProxyHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -14,10 +13,7 @@ import java.util.Date;
 @Service
 public class ProxyHistoryService {
 
-    @Autowired(required = false)
-    private MongoTemplate mongoTemplate;
-
-    @Autowired(required = false)
+    @Autowired
     private ProxyHistoryRepository proxyHistoryRepository;
 
     /**
