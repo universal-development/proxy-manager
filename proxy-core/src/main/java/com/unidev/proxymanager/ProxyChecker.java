@@ -1,11 +1,8 @@
 package com.unidev.proxymanager;
 
-import com.mongodb.util.JSON;
 import com.unidev.platform.http.HTTPClientUtils;
 import com.unidev.platform.http.ProxyHTTPClient;
 import com.unidev.proxymanager.data.ProxyCheckResult;
-import static com.unidev.proxymanager.data.ProxyCheckResult.CheckStatus.*;
-import com.unidev.proxymanager.data.ProxyHistory;
 import org.apache.http.message.BasicHeader;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -14,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import static com.unidev.proxymanager.data.ProxyCheckResult.*;
 
 import java.io.IOException;
+
+import static com.unidev.proxymanager.data.ProxyCheckResult.CheckStatus.OK;
+import static com.unidev.proxymanager.data.ProxyCheckResult.newCheckResult;
 
 /**
  * Proxy checking service
@@ -59,7 +58,7 @@ public class ProxyChecker {
             return ProxyCheckResult.FAILED;
         }
 
-        LOG.debug("{}", backendResponse);
+        LOG.debug("Backend response: {}", backendResponse);
 
         JSONObject jsonObject = new JSONObject(backendResponse);
         String remoteIp = jsonObject.getString(IP_KEY);
