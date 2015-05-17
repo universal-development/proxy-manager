@@ -170,4 +170,8 @@ public class ProxyHistory {
     public void addScore(Integer addScore) {
         setScore(getScore() + addScore);
     }
+
+    public void addRequestCount(Integer addRequestCount) {
+        setRequestCount(getRequestCount() + addRequestCount);
+    }
 }
