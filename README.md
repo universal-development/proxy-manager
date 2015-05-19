@@ -2,6 +2,7 @@
 
 Proxy manager application with web interface
 
+So far is implemented background service for proxy checking which store results in Elasticsearch and we have a small webapp for JMX interface... as another UI we have Kibana dashboard on which we can track proxy status...
 
 
 License
