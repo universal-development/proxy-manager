@@ -54,6 +54,11 @@
                                 dataIndex: 'requestTime'
                             },
                             {
+                                text: 'remoteIp',
+                                sortable: true,
+                                dataIndex: 'remoteIp'
+                            },
+                            {
                                 text: 'history',
                                 sortable: true,
                                 dataIndex: 'history'
