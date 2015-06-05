@@ -14,7 +14,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                classpath:/mvc-conf.xml
+                classpath:/mvc-beans.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
@@ -34,7 +34,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:/mvc-conf.xml
+            classpath:/mvc-beans.xml
         </param-value>
     </context-param>
 

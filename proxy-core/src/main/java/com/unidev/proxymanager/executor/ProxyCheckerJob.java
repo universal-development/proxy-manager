@@ -11,6 +11,8 @@ public class ProxyCheckerJob implements AbstractCallable {
     @Override
     public ExecutionResult<ProxyCheckResult> call() throws Exception {
 
+
+
 /*        String ip = proxyHistory.getIp();
         Integer port = proxyHistory.getPort();
 

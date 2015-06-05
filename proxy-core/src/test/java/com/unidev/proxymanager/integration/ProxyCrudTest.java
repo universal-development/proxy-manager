@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/platform-common-beans.xml","/proxy-core-conf.xml"})
+@ContextConfiguration(locations = {"classpath:/platform-common-beans.xml", "/proxy-core-beans.xml"})
 @Ignore
 public class ProxyCrudTest {
 

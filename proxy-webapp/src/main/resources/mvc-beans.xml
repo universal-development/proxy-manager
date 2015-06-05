@@ -20,7 +20,7 @@
         ">
 
     <import resource="classpath:/platform-common-beans.xml" />
-    <import resource="classpath:/proxy-core-conf.xml" />
+    <import resource="classpath:/proxy-core-beans.xml" />
 
     <mvc:annotation-driven/>
     <context:annotation-config/>
