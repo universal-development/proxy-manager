@@ -5,8 +5,8 @@ apply plugin: 'war'
 
 dependencies {
     compile project(':proxy-core')
-    compile 'org.jminix:jminix:1.1.0'
-    compile 'com.unidev.platform:platform-common-j2ee:1.1.0'
+    compile 'org.jminix:jminix:1.2.0'
+    compile 'com.unidev.platform:platform-common-j2ee:1.2.0'
     compile 'com.unidev.static:extjs-static:1.0.0'
 
 
