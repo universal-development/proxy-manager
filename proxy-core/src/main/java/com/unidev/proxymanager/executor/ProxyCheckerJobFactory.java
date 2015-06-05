@@ -9,6 +9,6 @@ import com.unidev.platform.jobs.JobFactory;
 public class ProxyCheckerJobFactory implements JobFactory {
     @Override
     public AbstractCallable newJob() {
-        return null;
+        return new ProxyCheckerJob(); // we can think about instantiation through spring
     }
 }
