@@ -1,7 +1,7 @@
 package com.unidev.proxymanager.executor;
 
 import com.unidev.platform.jobs.AbstractCallable;
-import com.unidev.platform.jobs.JobFactory;
+import com.unidev.platform.jobs.manager.JobFactory;
 
 /**
  * Job factory for proxy checking jobs
