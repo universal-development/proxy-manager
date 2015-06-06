@@ -9,8 +9,6 @@ import javax.annotation.PostConstruct;
 @Component
 public class ProxyManagerSetup {
 
-    @Autowired
-    private ProxyHistoryRepository proxyHistoryRepository;
 
     @Autowired
     private ProxyChecker proxyChecker;
@@ -18,6 +16,9 @@ public class ProxyManagerSetup {
     @PostConstruct
     public void setup() {
         proxyChecker.setRequestUrl("http://myipdc.apps.universal-development.com");
+
+
+
     }
 
 }
