@@ -29,6 +29,9 @@ public class ProxyCheckerJob implements AbstractCallable {
 
         String ip = proxyHistory.getIp();
         Integer port = proxyHistory.getPort();
-        return new ExecutionResult<ProxyCheckResult>(proxyChecker.checkProxyStatus(ip, port));
+
+        ProxyCheckResult proxyCheckResult = proxyChecker.checkProxyStatus(ip, port);
+        proxyHistoryService.updateProxyHistory(proxyHistory, proxyCheckResult);
+        return new ExecutionResult<ProxyCheckResult>().addResult(proxyCheckResult);
     }
 }
