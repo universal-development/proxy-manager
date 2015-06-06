@@ -30,7 +30,10 @@
 
     <bean id="checkedJobFactory" class="com.unidev.proxymanager.executor.ProxyCheckerJobFactory"/>
 
-    <bean id="retryExecutor" class="com.unidev.platform.jobs.retry.RetryJobManager">
+    <bean id="retryExecutor" class="com.unidev.platform.jobs.retry.RetryExecutor" />
+
+    <bean id="retryJobManager" class="com.unidev.platform.jobs.retry.RetryJobManager">
+        <property name="retryExecutor" ref="retryExecutor" />
         <property name="jobFactory" ref="checkedJobFactory" />
         <property name="jobs" value="${jobs.count}" />
         <property name="autoStartScheduling" value="true" />
