@@ -3,8 +3,8 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
 
-    group = 'com.unidev.app.templatevaadonapp'
-    version = '1.0.0-SNAPSHOT'
+    group = 'com.unidev.app.proxymanager'
+    version = '0.0.2-SNAPSHOT'
 
     apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
     apply from: 'http://dev.local/gradle/javadoc.groovy'
