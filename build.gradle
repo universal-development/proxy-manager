@@ -5,7 +5,7 @@ subprojects {
     apply plugin: 'idea'
 
     group = 'com.unidev.proxymanager'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.0.2-SNAPSHOT'
 
     apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
     apply from: 'http://dev.local/gradle/javadoc.groovy'
