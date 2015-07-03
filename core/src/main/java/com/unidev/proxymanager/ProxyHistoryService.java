@@ -33,8 +33,10 @@ public class ProxyHistoryService {
      */
     public void addProxy(String ip, Integer port) {
 
+        long count = proxyHistoryRepository.count();
+
         ProxyHistory proxyHistory = new ProxyHistory();
-        proxyHistory.setId((ip + ":" + port) + "");
+        proxyHistory.setId(count + 1);
         proxyHistory.setIp(ip);
         proxyHistory.setPort(port);
         proxyHistory.setAddDate(new Date());
@@ -45,11 +47,9 @@ public class ProxyHistoryService {
 
     /**
      * Remove proxy from indexing
-     * @param ip
-     * @param port
      */
-    public void removeProxy(String ip, Integer port) {
-        proxyHistoryRepository.delete( (ip + ":" + port)+ "");
+    public void removeProxy(Long id) {
+        proxyHistoryRepository.delete( id );
     }
 
     /**

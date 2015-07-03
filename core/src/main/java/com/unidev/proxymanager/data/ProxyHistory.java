@@ -15,7 +15,7 @@ import java.util.List;
 public class ProxyHistory {
 
     @Id
-    private String id;
+    private Long id;
 
     private String ip;
     private Integer port;
@@ -36,7 +36,7 @@ public class ProxyHistory {
     }
 
 
-    public ProxyHistory(String id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate, Date lastUpdate, String remoteIp) {
+    public ProxyHistory(Long id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate, Date lastUpdate, String remoteIp) {
         this.id = id;
         this.ip = ip;
         this.port = port;
@@ -49,7 +49,7 @@ public class ProxyHistory {
         this.remoteIp = remoteIp;
     }
 
-    public ProxyHistory(String id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate, Date lastUpdate) {
+    public ProxyHistory(Long id, String ip, Integer port, Long requestCount, Integer score, List<Integer> history, Double requestTime, Date addDate, Date lastUpdate) {
         this.id = id;
         this.ip = ip;
         this.port = port;
@@ -113,11 +113,11 @@ public class ProxyHistory {
                 '}';
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
